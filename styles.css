@@ -1,0 +1,55 @@
+html,
+body {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background: lightblue;
+}
+
+.page-header {
+    background-color: white;
+    box-shadow: 0px 5px 10px gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-header>.title {
+    font-size: clamp(2rem, 10vw + 1rem, 4rem);
+}
+
+.page-header>.add-book {
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 20px;
+    background-color: lightblue;
+    height: 40px;
+    width: 100px;
+    position: absolute;
+    right: 20px;
+}
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+    padding: 50px;
+
+}
+
+.cards-container>div {
+    height: 400px;
+    width: 300px;
+    padding: 30px;
+    box-sizing: border-box;
+    border: 1px solid;
+    border-radius: 20px;
+}
+
+.cards-container>div>.header {}
+
+.cards-container>div>.main {}
+
+.cards-container>div>.footer {}
