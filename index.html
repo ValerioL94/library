@@ -10,55 +10,85 @@
 </head>
 
 <body>
-    <div class="page-header">
-        <h1 class="title">Library </h1>
-        <button type="button" class="add-book">Add book</button>
+    <div id="content">
+        <div id="page-header">
+            <h1 class="title">Library </h1>
+        </div>
+        <div id="cards-container">
+            <div class="card" id="book1">
+                <div class="header">
+                    <h1>Title: </h1>
+                    <p>The Great Gatsby</p>
+                </div>
+                <div class="main">
+                    <div>
+                        <h2>Author: </h2>
+                        <p>F. Scott Fitzgerald</p>
+                    </div>
+                    <div>
+                        <h2>Genre: </h2>
+                        <p>Tragedy</p>
+                    </div>
+                    <div>
+                        <h2>Year: </h2>
+                        <p>1925</p>
+                    </div>
+                </div>
+                <div class="footer">
+                    <button type="button" class="read">Read</button>
+                </div>
+            </div>
+            <div class="card" id="book2">
+                <div class="header">
+                    <h1>Title: </h1>
+                    <p>Moby-Dick; or, The Whale</p>
+                </div>
+                <div class="main">
+                    <div>
+                        <h2>Author: </h2>
+                        <p>Herman Melville</p>
+                    </div>
+                    <div>
+                        <h2>Genre: </h2>
+                        <p>Adventure fiction</p>
+                    </div>
+                    <div>
+                        <h2>Year: </h2>
+                        <p>1851</p>
+                    </div>
+                </div>
+                <div class="footer">
+                    <button type="button" class="read">Read</button>
+                </div>
+            </div>
+            <div class="card" id="book3">
+                <div class="header">
+                    <h1>Title: </h1>
+                    <p>The Catcher in the Rye</p>
+                </div>
+                <div class="main">
+                    <div>
+                        <h2>Author:</h2>
+                        <p>J. D. Salinger</p>
+                    </div>
+                    <div>
+                        <h2>Genre: </h2>
+                        <p>Realistic fiction</p>
+                    </div>
+                    <div>
+                        <h2>Year: </h2>
+                        <p>1951</p>
+                    </div>
+                </div>
+                <div class="footer">
+                    <button type="button" class="read">Read</button>
+                </div>
+            </div>
+        </div>
+        <div id="page-footer">
+            <button type="button" class="add-book">Add book</button>
+        </div>
     </div>
-    <div class="cards-container">
-        <div class="book1">
-            <div class="header">
-                <h1>Title:</h1>
-            </div>
-            <div class="main">
-                <p>Author:</p>
-                <p>Genre:</p>
-                <p>Year:</p>
-            </div>
-            <div class="footer">
-                <label for="read">Read</label>
-                <input type="checkbox" id="read">
-            </div>
-        </div>
-        <div class="book2">
-            <div class="header">
-                <h1>Title:</h1>
-            </div>
-            <div class="main">
-                <p>Author:</p>
-                <p>Genre:</p>
-                <p>Year:</p>
-            </div>
-            <div class="footer">
-                <label for="read">Read</label>
-                <input type="checkbox" id="read">
-            </div>
-        </div>
-        <div class="book3">
-            <div class="header">
-                <h1>Title:</h1>
-            </div>
-            <div class="main">
-                <p>Author:</p>
-                <p>Genre:</p>
-                <p>Year:</p>
-            </div>
-            <div class="footer">
-                <label for="read">Read</label>
-                <input type="checkbox" id="read">
-            </div>
-        </div>
-    </div>
-
 </body>
 
 </html>
