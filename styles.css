@@ -48,6 +48,9 @@ p {
     background-color: white;
     overflow: hidden;
     box-shadow: 0px 5px 10px gray;
+    opacity: 1;
+    -webkit-transition: opacity 500ms linear;
+    transition: opacity 500ms linear;
 }
 
 .card>.header {
@@ -108,7 +111,7 @@ p {
 
 }
 
-#page-footer>.add-book {
+#add-book {
     font-size: 1rem;
     font-weight: bold;
     border-radius: 20px;

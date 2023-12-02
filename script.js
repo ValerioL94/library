@@ -1,22 +1,37 @@
 class Book {
-    constructor(id, title, author, genre, year, read) {
-        this.id = id;
+    constructor(title, author, genre, year, read) {
         this.title = title;
         this.author = author;
         this.genre = genre;
         this.year = year;
         this.read = read;
+        this.is_read = function () {
+            if (this.read === "yes") {
+                return {
+                    class: "read",
+                    text: "Read"
+                }
+            } else {
+                return {
+                    class: "read not",
+                    text: "Not read"
+                }
+            }
+        };
     }
-    is_read() { }
 }
 
-const book1 = new Book(1, "The Great Gatsby", "F. Scott Fitzgerald", "Tragedy", 1925, "Not read");
-const book2 = new Book(2, "Moby-Dick; or, The Whale", "Herman Melville", "Adventure fiction", 1851, "Not read");
-const book3 = new Book(3, "The Catcher in the Rye", "J. D. Salinger", "Realistic fiction", 1951, "Not read");
+const book0 = new Book("The Great Gatsby", "F. Scott Fitzgerald", "Tragedy", 1925, "yes");
+const book1 = new Book("Moby-Dick; or, The Whale", "Herman Melville", "Adventure fiction", 1851, "no");
+const book2 = new Book("The Catcher in the Rye", "J. D. Salinger", "Realistic fiction", 1951, "yes");
 
-const myLibrary = [book1, book2, book3];
+const myLibrary = [book0, book1, book2];
 
-window.onload = displayCollection();
+function assignId() {
+    myLibrary.forEach((book, i) => {
+        book.id = i;
+    });
+}
 
 function displayCollection() {
     for (let i = 0; i < myLibrary.length; i++) {
@@ -70,28 +85,34 @@ function bookDisplay(book) {
 
     const btn_read = document.createElement("button");
     btn_read.type = "button";
-    btn_read.className = "read";
-    btn_read.textContent = "Read";
+    btn_read.className = book.is_read().class;
+    btn_read.textContent = book.is_read().text;
+    btn_read.addEventListener("click", () => {
+        if (book.read === "yes") {
+            btn_read.className = "read not";
+            btn_read.textContent = "Not read";
+            book.read = "no";
+        } else {
+            btn_read.className = "read";
+            btn_read.textContent = "Read";
+            book.read = "yes";
+        }
+    });
 
     const btn_remove = document.createElement("button");
     btn_remove.type = "button";
     btn_remove.className = "remove";
     btn_remove.textContent = "Remove";
+    btn_remove.addEventListener("click", function () {
+        card.style.opacity = '0';
+        setTimeout(() => card.remove(), 500);
+        myLibrary.splice(`${book.id}`, 1);
+        assignId();
+    });
 
     card_footer.append(btn_read, btn_remove);
+};
+window.onload = () => {
+    assignId();
+    displayCollection();
 }
-
-const read_buttons = document.getElementsByClassName("read");
-for (const button of read_buttons) {
-    button.addEventListener("click", function () {
-        if (button.classList.contains("not")) {
-            button.classList.remove("not")
-            button.innerHTML = "Read"
-        } else {
-            button.classList.add("not")
-            button.innerHTML = "Not read"
-        }
-    });
-}
-
-
