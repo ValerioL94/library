@@ -21,11 +21,17 @@ class Book {
     }
 }
 
-const book0 = new Book("The Great Gatsby", "F. Scott Fitzgerald", "Tragedy", 1925, "yes");
-const book1 = new Book("Moby-Dick; or, The Whale", "Herman Melville", "Adventure fiction", 1851, "no");
-const book2 = new Book("The Catcher in the Rye", "J. D. Salinger", "Realistic fiction", 1951, "yes");
+const book0 = new Book("The Great Gatsby", "F. Scott Fitzgerald", "Tragedy", "1925", "yes");
+const book1 = new Book("Moby-Dick", "Herman Melville", "Adventure fiction", "1851", "no");
+const book2 = new Book("The Catcher in the Rye", "J. D. Salinger", "Realistic fiction", "1951", "yes");
 
 const myLibrary = [book0, book1, book2];
+let tempBook;
+
+function addToLibrary() {
+    myLibrary.push(tempBook);
+}
+
 
 function assignId() {
     myLibrary.forEach((book, i) => {
@@ -113,14 +119,33 @@ function bookDisplay(book) {
     cardFooter.append(btnRead, btnRemove);
 };
 
-const openModal = document.getElementById("open-modal")
-const bookModal = document.getElementById("book-modal")
+const openModal = document.getElementById("open-modal");
+const bookModal = document.getElementById("book-modal");
+const confirmBtn = document.getElementById("confirmBtn");
+
+let title = document.getElementById("title");
+let author = document.getElementById("author");
+let genre = document.getElementById("genre");
+let year = document.getElementById("year");
+let read = document.getElementById("read");
 
 openModal.addEventListener("click", () => {
     bookModal.showModal();
 })
 
+confirmBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+    bookModal.close();
+    tempBook = new Book(title.value, author.value, genre.value, year.value, read.value);
+    addToLibrary();
+    assignId();
+    bookDisplay(tempBook);
+    // document.getElementById("form").reset();  Reset form after confirming
+});
+
 window.onload = () => {
     assignId();
     displayCollection();
 }
+
+
