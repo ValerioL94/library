@@ -32,7 +32,6 @@ function addToLibrary() {
     myLibrary.push(tempBook);
 }
 
-
 function assignId() {
     myLibrary.forEach((book, i) => {
         book.id = i;
@@ -147,5 +146,3 @@ window.onload = () => {
     assignId();
     displayCollection();
 }
-
-

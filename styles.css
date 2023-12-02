@@ -72,6 +72,8 @@ p {
     grid-auto-flow: column;
     align-items: end;
     justify-content: space-between;
+    border-top: 1px solid;
+    margin-top: 10px;
 }
 
 .card>.footer>button {
@@ -108,7 +110,6 @@ p {
     display: grid;
     align-items: center;
     justify-items: end;
-
 }
 
 #open-modal {
