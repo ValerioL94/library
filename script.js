@@ -5,7 +5,7 @@ class Book {
         this.genre = genre;
         this.year = year;
         this.read = read;
-        this.is_read = function () {
+        this.isRead = function () {
             if (this.read === "yes") {
                 return {
                     class: "read",
@@ -40,30 +40,30 @@ function displayCollection() {
 }
 
 function bookDisplay(book) {
-    const cards_container = document.getElementById("cards-container");
+    const cardsContainer = document.getElementById("cards-container");
     const card = document.createElement("div");
     card.id = `book${book.id}`;
     card.className = "card";
-    cards_container.appendChild(card);
+    cardsContainer.appendChild(card);
 
-    const card_header = document.createElement("div");
-    card_header.className = "header";
-    const card_main = document.createElement("div");
-    card_main.className = "main";
-    const card_footer = document.createElement("div");
-    card_footer.className = "footer";
-    card.append(card_header, card_main, card_footer);
+    const cardHeader = document.createElement("div");
+    cardHeader.className = "header";
+    const cardMain = document.createElement("div");
+    cardMain.className = "main";
+    const cardFooter = document.createElement("div");
+    cardFooter.className = "footer";
+    card.append(cardHeader, cardMain, cardFooter);
 
     const header_h1 = document.createElement("h1");
     header_h1.textContent = "Title: ";
     const header_p = document.createElement("p");
     header_p.textContent = `${book.title}`;
-    card_header.append(header_h1, header_p);
+    cardHeader.append(header_h1, header_p);
 
     const author = document.createElement("div");
     const genre = document.createElement("div");
     const year = document.createElement("div");
-    card_main.append(author, genre, year);
+    cardMain.append(author, genre, year);
 
     const author_h2 = document.createElement("h2");
     author_h2.textContent = "Author: ";
@@ -83,35 +83,43 @@ function bookDisplay(book) {
     year_p.textContent = `${book.year}`;
     year.append(year_h2, year_p);
 
-    const btn_read = document.createElement("button");
-    btn_read.type = "button";
-    btn_read.className = book.is_read().class;
-    btn_read.textContent = book.is_read().text;
-    btn_read.addEventListener("click", () => {
+    const btnRead = document.createElement("button");
+    btnRead.type = "button";
+    btnRead.className = book.isRead().class;
+    btnRead.textContent = book.isRead().text;
+    btnRead.addEventListener("click", () => {
         if (book.read === "yes") {
-            btn_read.className = "read not";
-            btn_read.textContent = "Not read";
+            btnRead.className = "read not";
+            btnRead.textContent = "Not read";
             book.read = "no";
         } else {
-            btn_read.className = "read";
-            btn_read.textContent = "Read";
+            btnRead.className = "read";
+            btnRead.textContent = "Read";
             book.read = "yes";
         }
     });
 
-    const btn_remove = document.createElement("button");
-    btn_remove.type = "button";
-    btn_remove.className = "remove";
-    btn_remove.textContent = "Remove";
-    btn_remove.addEventListener("click", function () {
+    const btnRemove = document.createElement("button");
+    btnRemove.type = "button";
+    btnRemove.className = "remove";
+    btnRemove.textContent = "Remove";
+    btnRemove.addEventListener("click", () => {
         card.style.opacity = '0';
         setTimeout(() => card.remove(), 500);
         myLibrary.splice(`${book.id}`, 1);
         assignId();
     });
 
-    card_footer.append(btn_read, btn_remove);
+    cardFooter.append(btnRead, btnRemove);
 };
+
+const openModal = document.getElementById("open-modal")
+const bookModal = document.getElementById("book-modal")
+
+openModal.addEventListener("click", () => {
+    bookModal.showModal();
+})
+
 window.onload = () => {
     assignId();
     displayCollection();

@@ -18,9 +18,48 @@
 
         </div>
         <div id="page-footer">
-            <button type="button" id="add-book">Add book</button>
+            <button type="button" id="open-modal">Add book</button>
         </div>
     </div>
+    <dialog id="book-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>ADD BOOK</h2>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <p>
+                        <label for="title">Title:</label>
+                        <input type="text" id="title" placeholder="Book title">
+                    </p>
+                    <p>
+                        <label for="author">Author:</label>
+                        <input type="text" id="author" placeholder="Book author">
+                    </p>
+                    <p>
+                        <label for="genre">Genre:</label>
+                        <input type="text" id="genre" placeholder="Book genre">
+                    </p>
+                    <p>
+                        <label for="year">Year:</label>
+                        <input type="number" id="year" placeholder="Publication year">
+                    </p>
+                    <p>
+                        <label for="read">Have you read it already?</label>
+                        <select name="readOrNot" id="read">
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </p>
+                    <div class="modal-footer">
+                        <button id="cancelBtn" value="cancel" formmethod="dialog">Cancel</button>
+                        <button id="resetBtn" type="reset" value="reset">Reset</button>
+                        <button id="confirmBtn" value="default">Confirm</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </dialog>
 </body>
 
 </html>
