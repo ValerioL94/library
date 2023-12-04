@@ -5,19 +5,19 @@ class Book {
         this.genre = genre;
         this.year = year;
         this.read = read;
-        this.isRead = function () {
-            if (this.read === "yes") {
-                return {
-                    class: "read",
-                    text: "Read"
-                }
-            } else {
-                return {
-                    class: "read not",
-                    text: "Not read"
-                }
+    }
+    readToggle() {
+        if (this.read === "yes") {
+            return {
+                class: "read",
+                text: "Read"
             }
-        };
+        } else {
+            return {
+                class: "read not",
+                text: "Not read"
+            }
+        }
     }
 }
 
@@ -26,10 +26,10 @@ const book1 = new Book("Moby-Dick", "Herman Melville", "Adventure fiction", "185
 const book2 = new Book("The Catcher in the Rye", "J. D. Salinger", "Realistic fiction", "1951", "yes");
 
 const myLibrary = [book0, book1, book2];
-let tempBook;
+let userBook;
 
 function addToLibrary() {
-    myLibrary.push(tempBook);
+    myLibrary.push(userBook);
 }
 
 function assignId() {
@@ -47,7 +47,6 @@ function displayCollection() {
 function bookDisplay(book) {
     const cardsContainer = document.getElementById("cards-container");
     const card = document.createElement("div");
-    card.id = `book${book.id}`;
     card.className = "card";
     cardsContainer.appendChild(card);
 
@@ -90,8 +89,8 @@ function bookDisplay(book) {
 
     const btnRead = document.createElement("button");
     btnRead.type = "button";
-    btnRead.className = book.isRead().class;
-    btnRead.textContent = book.isRead().text;
+    btnRead.className = book.readToggle().class;
+    btnRead.textContent = book.readToggle().text;
     btnRead.addEventListener("click", () => {
         if (book.read === "yes") {
             btnRead.className = "read not";
@@ -135,10 +134,10 @@ openModal.addEventListener("click", () => {
 confirmBtn.addEventListener("click", (event) => {
     event.preventDefault();
     bookModal.close();
-    tempBook = new Book(title.value, author.value, genre.value, year.value, read.value);
+    userBook = new Book(title.value, author.value, genre.value, year.value, read.value);
     addToLibrary();
     assignId();
-    bookDisplay(tempBook);
+    bookDisplay(userBook);
     // document.getElementById("form").reset();  Reset form after confirming
 });
 
