@@ -1,64 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Library</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <div id="content">
-        <div id="page-header">
-            <h1 class="title">Library </h1>
-        </div>
-        <div id="cards-container">
-        </div>
-        <div id="page-footer">
-            <button type="button" id="open-modal">Add book</button>
-        </div>
+      <div id="page-header">
+        <h1 class="title">Library</h1>
+      </div>
+      <div id="cards-container"></div>
+      <div id="page-footer">
+        <button type="button" id="open-modal">Add book</button>
+      </div>
     </div>
     <dialog id="book-modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>ADD BOOK</h2>
-            </div>
-            <div class="modal-body">
-                <form id="form">
-                    <p>
-                        <label for="title">Title:</label>
-                        <input type="text" id="title" placeholder="Book title">
-                    </p>
-                    <p>
-                        <label for="author">Author:</label>
-                        <input type="text" id="author" placeholder="Book author">
-                    </p>
-                    <p>
-                        <label for="genre">Genre:</label>
-                        <input type="text" id="genre" placeholder="Book genre">
-                    </p>
-                    <p>
-                        <label for="year">Year:</label>
-                        <input type="number" id="year" placeholder="Publication year">
-                    </p>
-                    <p>
-                        <label for="read">Have you read it already?</label>
-                        <select name="readOrNot" id="read">
-                            <option value="yes">Yes</option>
-                            <option value="no">No</option>
-                        </select>
-                    </p>
-                    <div class="modal-footer">
-                        <button id="cancelBtn" value="cancel" formmethod="dialog">Cancel</button>
-                        <button id="resetBtn" type="reset" value="reset">Reset</button>
-                        <button id="confirmBtn" value="default">Confirm</button>
-                    </div>
-                </form>
-            </div>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>ADD BOOK</h2>
         </div>
+        <div class="modal-body">
+          <form id="form">
+            <p>
+              <label for="title">Title:</label>
+              <input
+                type="text"
+                id="title"
+                placeholder="Book title"
+                required
+                minlength="1"
+                maxlength="20"
+              />
+            </p>
+            <p>
+              <label for="author">Author:</label>
+              <input
+                type="text"
+                id="author"
+                placeholder="Book author"
+                required
+                minlength="1"
+                maxlength="20"
+              />
+            </p>
+            <p>
+              <label for="genre">Genre:</label>
+              <input
+                type="text"
+                id="genre"
+                placeholder="Book genre"
+                required
+                minlength="1"
+                maxlength="20"
+              />
+            </p>
+            <p>
+              <label for="year">Year:</label>
+              <input
+                type="number"
+                id="year"
+                placeholder="Publication year"
+                required
+                min="1"
+                max="2024"
+              />
+            </p>
+            <p>
+              <label for="read">Have you read it already?</label>
+              <select name="readOrNot" id="read">
+                <option value="yes">Yes</option>
+                <option value="no" selected>No</option>
+              </select>
+            </p>
+            <span class="warning"
+              >All fields must be filled out to confirm</span
+            >
+            <div class="modal-footer">
+              <button id="cancelBtn" type="button" value="cancel">
+                Cancel
+              </button>
+              <button id="resetBtn" type="reset" value="reset">Reset</button>
+              <button id="confirmBtn" type="button" value="confirm">
+                Confirm
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
     </dialog>
-</body>
-
+  </body>
 </html>

@@ -1,191 +1,203 @@
 html,
 body {
-    padding: 0;
-    margin: 0;
-    border: 0;
-    background-color: lightblue;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background-color: lightblue;
 }
 
 button:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 p {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 #content {
-    display: grid;
-    grid-template-rows: 1fr auto 1fr;
+  display: grid;
+  grid-template-rows: 1fr auto 1fr;
 }
 
 #page-header {
-    background-color: white;
-    box-shadow: 0px 2px 10px gray;
-    display: grid;
-    align-items: center;
-    justify-content: center;
+  background-color: white;
+  box-shadow: 0px 2px 10px gray;
+  display: grid;
+  align-items: center;
+  justify-content: center;
 }
 
-#page-header>.title {
-    font-size: clamp(2rem, 10vw + 1rem, 4rem);
+#page-header > .title {
+  font-size: clamp(2rem, 10vw + 1rem, 4rem);
 }
 
 #cards-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-    box-sizing: border-box;
-    padding: 50px;
-    gap: 50px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  box-sizing: border-box;
+  padding: 50px;
+  gap: 50px;
 }
 
-#cards-container>.card {
-    display: grid;
-    grid-template-rows: 100px 200px 70px;
-    border-radius: 20px;
-    box-sizing: border-box;
-    padding: 20px;
-    background-color: white;
-    overflow: hidden;
-    box-shadow: 0px 5px 10px gray;
-    opacity: 1;
-    -webkit-transition: opacity 500ms linear;
-    transition: opacity 500ms linear;
+#cards-container > .card {
+  display: grid;
+  grid-template-rows: 100px 200px 70px;
+  border-radius: 20px;
+  box-sizing: border-box;
+  padding: 20px;
+  background-color: white;
+  overflow: hidden;
+  box-shadow: 0px 5px 10px gray;
+  opacity: 1;
+  -webkit-transition: opacity 500ms linear;
+  transition: opacity 500ms linear;
 }
 
-.card>.header {
-    display: grid;
-    grid-auto-flow: column;
-    grid-template-columns: 1fr 2fr;
-    align-items: center;
+.card > .header {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
 }
 
-.card>.main>div {
-    display: grid;
-    grid-auto-flow: column;
-    grid-template-columns: 1fr 2fr;
-    align-items: center;
+.card > .main > div {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
 }
 
-.card>.footer {
-    display: grid;
-    grid-auto-flow: column;
-    align-items: end;
-    justify-content: space-between;
-    border-top: 1px solid;
-    margin-top: 10px;
+.card > .footer {
+  display: grid;
+  grid-auto-flow: column;
+  align-items: end;
+  justify-content: space-between;
+  border-top: 1px solid;
+  margin-top: 10px;
 }
 
-.card>.footer>button {
-    font-size: 1rem;
-    font-weight: bold;
-    border-radius: 20px;
-    height: 40px;
-    width: 100px;
+.card > .footer > button {
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 20px;
+  height: 40px;
+  width: 100px;
 }
 
-.card>.footer>.read {
-    transition: 0.5s;
-    background-color: greenyellow;
+.card > .footer > .read {
+  transition: 0.5s;
+  background-color: greenyellow;
 }
 
-.card>.footer>.read.not {
-    transition: 0.5s;
-    background-color: rgb(255, 80, 80);
+.card > .footer > .read.not {
+  transition: 0.5s;
+  background-color: rgb(255, 80, 80);
 }
 
-.card>.footer>.remove:hover {
-    background-color: rgb(255, 80, 80);
+.card > .footer > .remove:hover {
+  background-color: rgb(255, 80, 80);
 }
 
 #page-footer {
-    background: white;
-    position: fixed;
-    bottom: 0px;
-    right: 0px;
-    padding: 10px;
-    height: 40px;
-    width: 100%;
-    box-shadow: 0px -2px 10px gray;
-    display: grid;
-    align-items: center;
-    justify-items: end;
+  background: white;
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  padding: 10px;
+  height: 40px;
+  width: 100%;
+  box-shadow: 0px -2px 10px gray;
+  display: grid;
+  align-items: center;
+  justify-items: end;
 }
 
 #open-modal {
-    font-size: 1rem;
-    font-weight: bold;
-    border-radius: 20px;
-    background-color: lightblue;
-    height: 40px;
-    width: 100px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 20px;
+  background-color: lightblue;
+  height: 40px;
+  width: 100px;
 }
 
 li {
-    list-style: none;
+  list-style: none;
 }
 
 ::backdrop {
-    background-color: rgb(0, 0, 0);
-    background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 #book-modal {
-    border: none;
-    border-radius: 30px;
+  border-radius: 30px;
+  background-color: lightblue;
 }
 
 .modal-content {
-    display: grid;
-    justify-items: center;
-    height: 400px;
-    width: 400px;
-    grid-template-rows: auto 1fr;
+  display: grid;
+  justify-items: center;
+  min-height: 400px;
+  width: 400px;
+  grid-template-rows: auto 1fr;
 }
 
 .modal-body p {
-    display: grid;
-    grid-auto-flow: column;
-    gap: 10px;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 1.5rem;
+  display: grid;
+  grid-auto-flow: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.5rem;
 }
 
 .modal-body input {
-    border-radius: 10px;
-    height: 30px;
-    width: 250px;
-    padding: 5px;
-    box-sizing: border-box;
-    font-size: 1rem;
+  border-radius: 10px;
+  height: 30px;
+  width: 250px;
+  padding: 5px;
+  box-sizing: border-box;
+  font-size: 1rem;
 }
-
+input:valid {
+  border: 3px solid green;
+}
+input:invalid {
+  border: 3px solid red;
+}
+input:focus {
+  border: none;
+}
 .modal-body select {
-    height: 30px;
-    width: 60px;
-    font-size: 1rem;
-    border-radius: 10px;
-    padding: 5px;
+  height: 30px;
+  width: 60px;
+  font-size: 1rem;
+  border-radius: 10px;
+  padding: 5px;
 }
-
+.warning {
+  color: red;
+  text-decoration: underline;
+}
 .modal-footer {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
 }
 
-.modal-footer>button {
-    border-radius: 10px;
-    height: 40px;
-    width: 80px;
-    font-size: 1rem;
-    font-weight: bold;
+.modal-footer > button {
+  border-radius: 10px;
+  height: 40px;
+  width: 80px;
+  font-size: 1rem;
+  font-weight: bold;
 }
 
 #cancelBtn {
-    background-color: rgb(255, 80, 80)
+  background-color: rgb(255, 80, 80);
 }
 
 #confirmBtn {
-    background-color: greenyellow;
+  background-color: greenyellow;
 }
