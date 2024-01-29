@@ -150,20 +150,28 @@ openModal.addEventListener("click", () => {
   bookModal.showModal();
 });
 
+const titleError = document.getElementById("titleError");
+const authorError = document.getElementById("authorError");
+const genreError = document.getElementById("genreError");
+const yearError = document.getElementById("yearError");
 function validateForm() {
-  if (title.value === "") {
-    alert("Please fill out 'title' field");
-  } else if (author.value === "") {
-    alert("Please fill out 'author' field");
-  } else if (genre.value === "") {
-    alert("Please fill out 'genre' field");
-  } else if (year.validity.valid === false) {
+  if (title.value === "")
+    titleError.textContent = "Please fill out 'title' field";
+  else titleError.textContent = "";
+  if (author.value === "")
+    authorError.textContent = "Please fill out 'author' field";
+  else authorError.textContent = "";
+  if (genre.value === "")
+    genreError.textContent = "Please fill out 'genre' field";
+  else genreError.textContent = "";
+  if (year.validity.valid === false) {
     if (year.value === "") {
-      alert("Please fill out 'year' field");
+      yearError.textContent = "Please fill out 'year' field";
     } else if (year.value < 1 || year.value > 2024) {
-      alert("'Year' must be higher than 0 and lower than 2025");
+      yearError.textContent =
+        "'Year' must be greater than 0 and less than 2025";
     }
-  }
+  } else yearError.textContent = "";
 }
 const form = document.getElementById("form");
 confirmBtn.addEventListener("click", () => {
@@ -185,6 +193,13 @@ confirmBtn.addEventListener("click", () => {
   }
 });
 
+const resetBtn = document.getElementById("resetBtn");
+resetBtn.addEventListener("click", () => {
+  titleError.textContent = "";
+  authorError.textContent = "";
+  genreError.textContent = "";
+  yearError.textContent = "";
+});
 cancelBtn.addEventListener("click", () => {
   bookModal.close();
 });

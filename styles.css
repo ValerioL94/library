@@ -150,6 +150,8 @@ li {
   align-items: center;
   justify-content: space-between;
   font-size: 1.5rem;
+  position: relative;
+  padding: 5px 0;
 }
 
 .modal-body input {
@@ -168,6 +170,14 @@ input:invalid {
 }
 input:focus {
   border: none;
+}
+
+.error {
+  position: absolute;
+  top: 100%;
+  left: 28%;
+  color: red;
+  font-size: 15px;
 }
 .modal-body select {
   height: 30px;
